@@ -1,0 +1,29 @@
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Account No.</th>
+            <th>Type</th>
+            <th>Balance</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for acc in accounts %}
+        <tr>
+            <td>{{ acc[1] }}</td>
+            <td>{{ acc[3]|capitalize }}</td>
+            <td>{{ acc[4] }}</td>
+            <td>
+                <a href="{{url_for('viewbalance',account_number=acc[1])}}" class="btn btn-info btn-sm">Balance</a>
+                
+
+                
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="4" class="text-center">No accounts found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
